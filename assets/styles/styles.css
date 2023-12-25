@@ -1,0 +1,347 @@
+*, html, body{
+    font-family: 'Merriweather', serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+    color: #B06161;
+}
+
+main{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 2px;
+    scroll-behavior: smooth;
+}
+
+section{
+    transform-style: preserve-3d;
+    position: relative;
+    height: 100vh;
+    min-height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+section h1{
+    text-align: center;
+
+}
+
+.no-parrallax{
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    background-color: #F9F9E0;
+    z-index: 999;
+}
+
+.parallax h1{
+    color: #ffffff;
+    width: 60%;
+}
+
+.parallax::after{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateZ(-1px) scale(1.5);
+    background-size: 100%;
+    z-index: -1;
+}
+
+.bg1::after{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../img/dome1.jpg");
+    background-size: cover;
+}
+
+.bg2::after{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../img/dome2.jpg");
+    background-size: cover;
+}
+
+.bg3::after{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../img/dome3.jpg");
+    background-size: cover;
+}
+.bg4::after{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../img/dome4.jpg");
+    background-size: cover;
+}
+.bg5::after{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../img/dome5.jpg");
+    background-size: cover;
+}
+.bg6::after{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../img/dome6.jpg");
+    background-size: cover;
+}
+.bg7::after{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../img/dome7.jpg");
+    background-size: cover;
+}
+
+
+.img-footer{
+    text-align: center;
+    width: 80%;
+    position: fixed;
+    bottom: 0;
+    opacity: 0.5;
+}
+
+.gallery{
+    padding: 20px;
+}
+
+.gallery img {
+    margin-bottom: 15px; /* Espacio entre imágenes */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: transform 0.3s ease; /* Efecto suave al hacer hover */
+}
+
+.gallery img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    cursor: pointer;
+}
+
+
+.foot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden; /* Para contener el zoom interno */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.duck-img {
+    border-radius: 50%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+}
+
+.hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+    text-align: center;
+}
+
+.image-container:hover .duck-img {
+    transform: scale(1.1); /* Efecto de zoom */
+    filter: brightness(90%) blur(2px); 
+    cursor: pointer;
+}
+
+.image-container:hover .hover-text {
+    visibility: visible;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.corner-duck{
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.corner-duck-message{
+    opacity: 0;
+    cursor: pointer;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: black;
+    position: absolute;
+    bottom: 60px;
+    left: 90px;
+    transition: opacity 500ms ease-in-out;
+}
+
+.corner-duck-hearts{
+    opacity: 0;
+    position: absolute;
+    bottom: 105px;
+    left: 10px;
+    transform: rotate(-25deg);
+    transition: opacity 500ms ease-in-out;
+}
+
+.corner-duck-hearts.visible{
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+
+.corner-duck-message.visible{
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+  }
+
+  /* Estilos para svg */
+  svg {
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
+    overflow: visible;
+  }
+  
+  /* Estilos para #fern */
+  #fern {
+    width: 300px;
+    height: auto;
+  }
+  
+  /* Estilos para #sun */
+  #sun {
+    width: 200px;
+    top: 0%;
+    right: 0%;
+    transform: translateX(70px) translateY(-70px);
+  }
+  
+  /* Estilos para elementos que comienzan con 'flowers' */
+  [id^="flowers"] g {
+    fill: #008eff;
+  }
+  
+  /* Estilos para elementos que comienzan con 'spiral' */
+  [id^="spiral"] {
+    stroke-width: 2px;
+  }
+
+  .portrait{
+    opacity: 0;
+    text-align: center;
+  }
+
+  .observable
+  {
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+        position: inherit;
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 2s ease forwards;
+  }
+
+  .fade-in-fast {
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .fade-in-advertice {
+    animation: fadeIn 4s ease forwards;
+  }
+  
+  
+  .love-message{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .advertice{
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    background-color: #F5CCA0;
+    top: 15%;
+    right: 15%;
+    border: 2px solid #F5CCA0;
+    box-shadow: 1px 1px 0.25px #ccc;
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 15px;
+    transform: rotate(20deg);
+  }
+
+  @media(max-width: 768px){
+    .advertice{
+        top: 5%;
+        right: 5%;
+    }
+
+    .bg1::after{
+        background-position: center;
+    }
+
+    .bg2::after{
+        background-position: center;
+    }
+    .bg3::after{
+        background-position: center;
+    }
+    .bg4::after{
+        background-position: center;
+    }
+    .bg5::after{
+        background-position: right;
+    }
+    .bg6::after{
+        background-position: center;
+    }
+    .bg7::after{
+        background-position: center;
+    }
+
+    svg {
+        bottom: 10px;
+        left: -10px;
+    }
+ }
+
+ #scroll-down-button {
+    z-index: 999;
+    position: fixed;
+    bottom: 50px; /* Centrado verticalmente */
+    border-radius: 50%; /* Hace el botón circular */
+    width: 50px; /* Tamaño del botón */
+    height: 50px; /* Tamaño del botón */
+    border: none; /* Opcional: sin borde */
+    background-color: #F9F9E0; /* Color de fondo */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    outline: none; /* Elimina el contorno al hacer foco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para resaltar el botón */
+    font-size: 24px; /* Tamaño del símbolo de la flecha */
+  }
+  
+.button-container{
+    overflow: visible;
+}
+
